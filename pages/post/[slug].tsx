@@ -1,27 +1,32 @@
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
+const posts = [
+  {
+    id: 1,
+    slug: 'my-london-post',
+    title: 'London Post',
+  },
+  {
+    id: 2,
+    slug: 'my-quito-post',
+    title: 'Quito Post',
+  },
+]
+
 const Post = () => {
-    const router = useRouter()
-    const query = router.query
+  let title = "Loading..."
 
-    const posts = [
-        {
-            id: 1,
-            slug: 'my-london-post',
-            title: 'London Post',
-        },
-        {
-            id: 2,
-            slug: 'my-quito-post',
-            title: 'Quito Post',
-        },
-    ]
+  const router = useRouter()
+  const { slug } = router.query
 
-    const post = posts.find(({ slug }) => slug === query.slug)
+  const post = posts.find(({ slug: postSlug }) => postSlug === slug)
 
-    return (
-        <h1>{ post.title }</h1>
-    )
+  if (post) {
+    title = post.title
+  }
+
+  return <h1>{ title }</h1>
 }
 
 export default Post
