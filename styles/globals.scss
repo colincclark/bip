@@ -1,0 +1,135 @@
+@import './variables.scss';
+
+html,
+ol,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  align-items: center;
+  background-color: $siteColor;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - $headerHeight);
+  padding: 8px;
+  
+  @media (min-width: $phoneBp) {
+    padding: 16px;
+  }
+  
+  @media (min-width: $desktopBp) {
+    padding: 32px;
+  }
+}
+
+h1,
+h2 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 1.25em;
+  margin: 0 0 8px;
+  
+  @media (min-width: $phoneBp) {
+    font-size: 1.5em;
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: $desktopBp) {
+    margin-bottom: 32px;
+  }
+}
+
+h2 {
+  font-size: 1.1em;
+  margin: 0;
+  
+  @media (min-width: $phoneBp) {
+    font-size: 1.25em;
+  }
+}
+
+p {
+  margin: 8px 0 0;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+ol,
+ul {
+  list-style-type: none;
+}
+
+hr {
+  border-bottom: 0;
+  border-top: 1px solid $borderColor;
+  margin: 16px 0;
+}
+
+a {
+  background-color: transparent;
+  color: $siteColor;
+  text-decoration: none;
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+img {
+  border-style: none;
+}
+
+button,
+input {
+ 
+  overflow: visible;
+}
+
+button,
+select {
+ 
+  text-transform: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+* {
+  box-sizing: border-box;
+}

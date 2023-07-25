@@ -1,7 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import { useContext } from 'react'
+
+import { ThemeContext } from 'components/ThemeContext'
+import ContentContainer from 'components/ContentContainer'
 
 const posts = [
   {
@@ -17,43 +20,36 @@ const posts = [
 ]
 
 const Home: NextPage = () => {
+  const theme: string = useContext(ThemeContext)
+
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Our blog post</title>
-        <meta name="description" content="Our blog post" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Colin and Francesca: Home Page</title>
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to our blogpost
-        </h1>
-      </main>
-
-      <aside>
-        <ol>
-          {posts.map((post) => (
-            <li key={post.id}>
-              <Link
-                href={{
-                  pathname: "/post/[slug]",
-                  query: { slug: encodeURIComponent(post.slug) },
-                }}
-              >
-                {post.title}
-              </Link>
-            </li>
-          ))}
-        </ol>
-      </aside>
-
-      <footer className={styles.footer}>
-        <Link href="/about">
-          About Us
-        </Link>
-      </footer>
-    </div>
+      {
+        posts && (
+          <ul>
+            {
+              posts?.map((post) => (
+                <li key={post.id}>
+                  <ContentContainer>
+                    <Link
+                      href={{
+                        pathname: "/post/[slug]",
+                        query: { slug: encodeURIComponent(post.slug) },
+                      }}
+                    >
+                      {post.title}
+                    </Link>
+                    </ContentContainer>
+                </li>
+              ))}
+          </ul>
+        )
+      }
+    </>
   )
 }
 

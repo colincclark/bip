@@ -1,0 +1,52 @@
+@import './variables.scss';
+
+.container {
+  background-color: #fff;
+  border: 1px solid $borderColor;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px 5px rgb(0 0 0 / 20%);
+  left: 8px;
+  padding: 16px;
+  position: absolute;
+  top: 75px;
+  width: calc(100% - 16px);
+
+  @media (min-width: $phoneBp) {
+    left: 16px;
+    width: calc(100% - 32px);
+  }
+  
+  @media (min-width: $tabletBp) {
+    max-width: 400px;
+  }
+
+  h3 {
+    font-size: 1em;
+    margin: 0;
+  }
+
+  li {
+    border-radius: 8px;
+    line-height: 32px;
+    padding: 0 8px;
+    transition: background-color .15s linear;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: $highlightBackgroundColor;
+      }
+    }
+  }
+
+  a {
+    color: $textColor;
+    display: inline-block;
+    width: 100%;
+    
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

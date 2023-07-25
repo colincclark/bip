@@ -1,0 +1,47 @@
+@import './variables.scss';
+
+.header {
+  align-items: center;
+  border-bottom: 1px solid $borderColor;
+  display: flex;
+  height: $headerHeight;
+  justify-content: center;
+  padding: 8px 16px;
+}
+
+.burgerMenu {
+  background-color: #fff;
+  border: 0;
+  border-radius: 8px;
+  left: 8px;
+  height: 40px;
+  position: absolute;
+  width: 40px;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: $highlightBackgroundColor;
+      outline: none;
+    }
+  }
+}
+
+.navLinks {
+  display: none;
+  position: absolute;
+  right: 16px;
+
+  a {
+    padding-left: 8px;
+  }
+}
+
+@media (min-width: $phoneBp) {
+  .navLinks {
+    display: block;
+  }
+
+  .burgerMenu {
+    left: 16px;
+  }
+}

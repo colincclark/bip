@@ -1,0 +1,13 @@
+@import './variables.scss';
+
+.section {
+  background-color: #fff;
+  border: 1px solid $borderColor;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+
+  @media (min-width: $desktopBp) {
+    max-width: 800px;
+  }
+}
