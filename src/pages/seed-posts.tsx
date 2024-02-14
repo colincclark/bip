@@ -15,15 +15,14 @@ const Populate = ({ posts }: any) => {
 }
 
 export async function getStaticProps() {
-  // const response = await fetch('http://localhost:3000/api/seed-posts', {
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  // })
+  const response = await fetch('http://localhost:3000/api/seed-posts', {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  })
 
-  // console.log(response)
+  const posts = await response.json();
 
-  // const posts = await response.json();
   return {
     props: {
       posts: [],

@@ -3,8 +3,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useContext } from 'react'
 
-import { ThemeContext } from 'components/ThemeContext'
-import ContentContainer from 'components/ContentContainer'
+import { ThemeContext } from 'src/components/ThemeContext'
+import ContentContainer from 'src/components/ContentContainer'
 
 const posts = [
   {
@@ -43,7 +43,7 @@ const Home: NextPage = () => {
                     >
                       {post.title}
                     </Link>
-                    </ContentContainer>
+                  </ContentContainer>
                 </li>
               ))}
           </ul>

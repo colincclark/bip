@@ -50,20 +50,26 @@ export default function handler(
       const postTitle = title['$t']
       const postSlug = postTitle.replace(/[^\w\s\']|_/g, "")
         .replace(/\s+/g, "-").toLowerCase();
-      const postContent = setContent(content['$t'], index)
+      const postContent = setContent(content['$t'], postSlug)
       const postedAt = published
       const postUserId = name === 'Unknown' ? 1 : 2
       const postCountryId = setCountryId(index)
       const postTripId = setTripId(index)
 
-      try {
-        await db.none('INSERT INTO posts(id, slug, title, content, posted_at, user_id, country_id, trip_id) VALUES($1, $2, $3, $4, $5, $6, $7, $8)', [index + 1, postSlug, postTitle, postContent, postedAt, postUserId, postCountryId, postTripId])
-        // success
-      }
-      catch (e) {
-        // error
-        console.log('error setting posts: ', e)
-      }
+      if (!postContent) return
+
+      const writeStream = fs.createWriteStream(`posts/${postSlug}.html`);
+      writeStream.write(postContent);
+      writeStream.end();
+
+      // try {
+      //   await db.none('INSERT INTO posts(id, slug, title, content, posted_at, user_id, country_id, trip_id) VALUES($1, $2, $3, $4, $5, $6, $7, $8)', [index + 1, postSlug, postTitle, postContent, postedAt, postUserId, postCountryId, postTripId])
+      //   // success
+      // }
+      // catch (e) {
+      //   // error
+      //   console.log('error setting posts: ', e)
+      // }
     })
   })
 

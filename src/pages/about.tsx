@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-import ContentContainer from 'components/ContentContainer'
+import ContentContainer from 'src/components/ContentContainer'
 
 const About: NextPage = () => {
   return (

@@ -1,5 +1,5 @@
-import Navbar from 'components/Navbar'
-import { ThemeProvider } from 'components/ThemeContext'
+import Navbar from 'src/components/Navbar'
+import { ThemeProvider } from 'src/components/ThemeContext'
 
 interface LayoutProps {
   children: React.ReactNode

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { MouseEvent, useState } from 'react'
 
-import BurgerMenu from 'components/BurgerMenu'
+import BurgerMenu from 'src/components/BurgerMenu'
 import { User } from 'types/User'
 
 import styles from './Navbar.module.scss'
